@@ -1,4 +1,4 @@
-import { CalendarDays, Clock3, MapPin, Users } from "lucide-react";
+import { CalendarDays, Clock3, MapPin } from "lucide-react";
 
 export default function HeroContent() {
   return (
@@ -16,13 +16,14 @@ export default function HeroContent() {
         <br />
         Creator Summit
         <br />
-        2026
+		<span className="text-green-400">2026</span>
       </h1>
 
-      <p className="mt-8 max-w-xl text-lg leading-8 text-slate-300">
-        Learn from Malaysia's leading YouTube creators, gain practical
-        strategies, expand your network and grow your content with confidence.
-      </p>
+      <p className="mt-6 max-w-lg text-lg leading-8 text-slate-300">
+  Learn practical strategies from Malaysia's leading creators, marketers and
+  entrepreneurs to grow your audience, build your brand and turn content into
+  sustainable business opportunities.
+</p>
 
       <div className="mt-10 space-y-4">
 
@@ -35,19 +36,13 @@ export default function HeroContent() {
           text="Connexion Conference Centre"
         />
 
-        <Info
-          icon={<Users size={20} />}
-          text="Terhad kepada 100 peserta sahaja"
-          highlight
-        />
-
       </div>
 
       <button
-        className="mt-10 w-fit rounded-full bg-green-500 px-8 py-4 font-semibold text-black transition hover:bg-green-400"
-      >
-        Daftar Sekarang
-      </button>
+  className="mt-12 inline-flex w-fit items-center justify-center rounded-xl bg-green-500 px-8 py-4 font-semibold text-slate-950 shadow-lg shadow-green-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-400 hover:shadow-xl hover:shadow-green-400/30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-green-500/30"
+>
+  Daftar Sekarang
+</button>
 
     </div>
   );
@@ -62,12 +57,21 @@ type InfoProps = {
 function Info({ icon, text, highlight }: InfoProps) {
   return (
     <div
-      className={`flex items-center gap-3 ${
-        highlight ? "text-green-400" : "text-slate-300"
+      className={`flex items-center gap-4 ${
+        highlight ? "text-green-400" : "text-slate-200"
       }`}
     >
-      {icon}
-      <span>{text}</span>
+      <div
+        className={`flex h-10 w-10 items-center justify-center rounded-full border ${
+          highlight
+            ? "border-green-500/30 bg-green-500/10"
+            : "border-white/10 bg-white/5"
+        }`}
+      >
+        {icon}
+      </div>
+
+      <span className="text-base">{text}</span>
     </div>
   );
 }
