@@ -1,0 +1,33 @@
+@theme {
+  /* Fonts */
+  --font-heading: "Bebas Neue", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Brand */
+  --color-brand: #22c55e;
+  --color-brand-dark: #16a34a;
+  --color-brand-light: #4ade80;
+
+  /* Background */
+  --color-background: #ffffff;
+  --color-background-dark: #050505;
+
+  /* Surface */
+  --color-surface: #111111;
+  --color-surface-light: #f8fafc;
+
+  /* Text */
+  --color-text: #0f172a;
+  --color-text-light: #64748b;
+  --color-text-dark: #ffffff;
+
+  /* Border */
+  --color-border: #e5e7eb;
+
+  /* Radius */
+  --radius-card: 24px;
+  --radius-button: 999px;
+
+  /* Shadow */
+  --shadow-card: 0 20px 60px rgb(0 0 0 / 8%);
+}
