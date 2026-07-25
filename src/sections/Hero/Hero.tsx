@@ -5,11 +5,13 @@ import heroBg from "../../assets/images/hero-bg.webp";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-svh overflow-hidden bg-[#050505] text-white">
-
+    <section
+      id="top"
+      aria-labelledby="hero-title"
+      className="relative min-h-svh overflow-hidden bg-[#050505] text-white"
+    >
       {/* Background Layers */}
       <div className="absolute inset-0">
-
         {/* Background Image */}
         <img
           src={heroBg}
@@ -26,7 +28,6 @@ export default function Hero() {
 
         {/* Top Gradient */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_55%)]" />
-
       </div>
 
       <Container className="relative flex min-h-svh items-center pt-36 pb-20">
@@ -35,7 +36,6 @@ export default function Hero() {
           <RSVPCard />
         </div>
       </Container>
-
     </section>
   );
 }

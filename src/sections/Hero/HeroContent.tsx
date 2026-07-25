@@ -1,8 +1,30 @@
+import type { ReactNode } from "react";
 import { CalendarDays, Clock3, MapPin } from "lucide-react";
 import { motion } from "motion/react";
 import { heroContainer, heroItem } from "../../lib/motion";
+import { useHero } from "../../hooks/useHero";
 
 export default function HeroContent() {
+  const { hero, loading, error } = useHero();
+
+  if (loading) {
+    return (
+      <div className="flex min-h-[640px] items-center">
+        <p className="text-slate-400">Loading...</p>
+      </div>
+    );
+  }
+
+  if (error || !hero) {
+    return (
+      <div className="flex min-h-[640px] items-center">
+        <p className="text-red-400">
+          Unable to load event information.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <motion.div
       className="flex flex-col justify-center"
@@ -14,66 +36,62 @@ export default function HeroContent() {
         variants={heroItem}
         className="mb-6 inline-flex w-fit rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-sm font-medium text-green-400"
       >
-        NextStage Events Presents
+        {hero.badge}
       </motion.span>
 
       <motion.h1
+        id="hero-title"
         variants={heroItem}
         className="text-7xl leading-none uppercase md:text-8xl"
         style={{ fontFamily: '"Bebas Neue", sans-serif' }}
       >
-        YouTube
+        {hero.title.split(" ").slice(0, 1).join(" ")}
         <br />
-        Creator Summit
+        {hero.title.split(" ").slice(1, 3).join(" ")}
         <br />
-        <span className="text-green-400">2026</span>
+        <span className="text-green-400">
+          {hero.title.split(" ").slice(3).join(" ")}
+        </span>
       </motion.h1>
 
       <motion.p
         variants={heroItem}
         className="mt-6 max-w-lg text-lg leading-8 text-slate-300"
       >
-        Learn practical strategies from Malaysia's leading creators,
-        marketers and entrepreneurs to grow your audience, build your
-        brand and turn content into sustainable business opportunities.
+        {hero.description}
       </motion.p>
 
-      <motion.div
-        variants={heroItem}
-        className="mt-10 space-y-4"
-      >
+      <motion.div variants={heroItem} className="mt-10 space-y-4">
         <Info
           icon={<CalendarDays size={20} />}
-          text="18 July 2026"
+          text={hero.eventDate}
         />
 
         <Info
           icon={<Clock3 size={20} />}
-          text="9:00 AM – 2:00 PM"
+          text={hero.eventTime}
         />
 
         <Info
           icon={<MapPin size={20} />}
-          text="Connexion Conference Centre"
+          text={hero.eventLocation}
         />
       </motion.div>
 
-      <motion.div
-  variants={heroItem}
-  className="mt-12 w-fit"
->
-  <button
-    className="inline-flex items-center justify-center rounded-xl bg-green-500 px-8 py-4 font-semibold text-slate-950 shadow-lg shadow-green-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-400 hover:shadow-xl hover:shadow-green-400/30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-green-500/30"
-  >
-    Daftar Sekarang
-  </button>
-</motion.div>
+      <motion.div variants={heroItem} className="mt-12 w-fit">
+        <a
+          href={hero.ctaLink}
+          className="inline-flex items-center justify-center rounded-xl bg-green-500 px-8 py-4 font-semibold text-slate-950 shadow-lg shadow-green-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-400 hover:shadow-xl hover:shadow-green-400/30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-green-500/30"
+        >
+          {hero.ctaText}
+        </a>
+      </motion.div>
     </motion.div>
   );
 }
 
 type InfoProps = {
-  icon: React.ReactNode;
+  icon: ReactNode;
   text: string;
   highlight?: boolean;
 };

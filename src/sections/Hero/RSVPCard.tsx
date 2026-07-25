@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 export default function RSVPCard() {
   return (
     <motion.div
+      id="rsvp"
       initial={{ opacity: 0, x: 40 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{
@@ -26,27 +27,64 @@ export default function RSVPCard() {
       </div>
 
       <form className="mt-8 space-y-4">
-        <input
-          className="w-full rounded-xl border border-white/20 bg-white/5 px-5 py-4 text-white placeholder:text-white/45 outline-none transition-all duration-300 focus:border-green-400 focus:bg-white/10 focus:ring-4 focus:ring-green-500/10"
-          placeholder="Nama Penuh"
-        />
+        <div>
+          <label htmlFor="fullName" className="sr-only">
+            Nama Penuh
+          </label>
 
-        <input
-          className="w-full rounded-xl border border-white/20 bg-white/5 px-5 py-4 text-white placeholder:text-white/45 outline-none transition-all duration-300 focus:border-green-400 focus:bg-white/10 focus:ring-4 focus:ring-green-500/10"
-          placeholder="Email"
-        />
+          <input
+            id="fullName"
+            type="text"
+            autoComplete="name"
+            placeholder="Nama Penuh"
+            className="w-full rounded-xl border border-white/20 bg-white/5 px-5 py-4 text-white placeholder:text-white/45 outline-none transition-all duration-300 focus:border-green-400 focus:bg-white/10 focus:ring-4 focus:ring-green-500/10"
+          />
+        </div>
 
-        <input
-          className="w-full rounded-xl border border-white/20 bg-white/5 px-5 py-4 text-white placeholder:text-white/45 outline-none transition-all duration-300 focus:border-green-400 focus:bg-white/10 focus:ring-4 focus:ring-green-500/10"
-          placeholder="No. Telefon"
-        />
+        <div>
+          <label htmlFor="email" className="sr-only">
+            Email
+          </label>
 
-        <input
-          className="w-full rounded-xl border border-white/20 bg-white/5 px-5 py-4 text-white placeholder:text-white/45 outline-none transition-all duration-300 focus:border-green-400 focus:bg-white/10 focus:ring-4 focus:ring-green-500/10"
-          placeholder="Syarikat"
-        />
+          <input
+            id="email"
+            type="email"
+            autoComplete="email"
+            placeholder="Email"
+            className="w-full rounded-xl border border-white/20 bg-white/5 px-5 py-4 text-white placeholder:text-white/45 outline-none transition-all duration-300 focus:border-green-400 focus:bg-white/10 focus:ring-4 focus:ring-green-500/10"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="phone" className="sr-only">
+            No. Telefon
+          </label>
+
+          <input
+            id="phone"
+            type="tel"
+            autoComplete="tel"
+            placeholder="No. Telefon"
+            className="w-full rounded-xl border border-white/20 bg-white/5 px-5 py-4 text-white placeholder:text-white/45 outline-none transition-all duration-300 focus:border-green-400 focus:bg-white/10 focus:ring-4 focus:ring-green-500/10"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="company" className="sr-only">
+            Syarikat
+          </label>
+
+          <input
+            id="company"
+            type="text"
+            autoComplete="organization"
+            placeholder="Syarikat"
+            className="w-full rounded-xl border border-white/20 bg-white/5 px-5 py-4 text-white placeholder:text-white/45 outline-none transition-all duration-300 focus:border-green-400 focus:bg-white/10 focus:ring-4 focus:ring-green-500/10"
+          />
+        </div>
 
         <button
+          type="submit"
           className="w-full rounded-xl bg-green-500 py-4 font-semibold text-black transition-colors duration-300 hover:bg-green-400"
         >
           Hantar RSVP
