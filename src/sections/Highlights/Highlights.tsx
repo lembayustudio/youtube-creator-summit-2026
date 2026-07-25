@@ -1,4 +1,8 @@
+import { motion } from "motion/react";
 import { ArrowUpRight, Handshake, Wallet } from "lucide-react";
+
+import { fadeUp } from "../../lib/motion";
+import HighlightCard from "./HighlightCard";
 
 const highlights = [
   {
@@ -28,7 +32,10 @@ export default function Highlights() {
       className="bg-slate-950 py-24"
     >
       <div className="container mx-auto px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <motion.div
+          {...fadeUp()}
+          className="mx-auto max-w-3xl text-center"
+        >
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-green-400">
             Why You Should Attend
           </span>
@@ -42,26 +49,17 @@ export default function Highlights() {
             industry leaders and discovering new opportunities to grow your
             content and business.
           </p>
-        </div>
+        </motion.div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
-          {highlights.map(({ icon: Icon, title, description }) => (
-            <article
+          {highlights.map(({ icon, title, description }, index) => (
+            <HighlightCard
               key={title}
-              className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-500/30 hover:bg-white/10"
-            >
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-500/10 text-green-400">
-                <Icon size={28} />
-              </div>
-
-              <h3 className="mt-6 text-2xl font-semibold text-white">
-                {title}
-              </h3>
-
-              <p className="mt-4 leading-7 text-slate-300">
-                {description}
-              </p>
-            </article>
+              icon={icon}
+              title={title}
+              description={description}
+              delay={index * 0.1}
+            />
           ))}
         </div>
       </div>
