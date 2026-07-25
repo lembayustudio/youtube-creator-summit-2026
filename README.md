@@ -1,77 +1,82 @@
-# React + TypeScript + Vite
+# YouTube Creator Summit 2026
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern event landing page built with React, TypeScript and Tailwind CSS.
 
-Currently, two official plugins are available:
+> [!IMPORTANT]
+> **Portfolio Project**
+>
+> This project was created solely for portfolio and demonstration purposes.
+>
+> The event, speakers, schedule, branding, images and all written content are fictional or used as placeholder content to showcase website design, frontend development and UI/UX capabilities.
+>
+> It is **not affiliated with YouTube, Google or any real organisation**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- React
+- TypeScript
+- Vite
+- Tailwind CSS v4
+- Motion
+- Lucide React
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Features
 
-Note: This will impact Vite dev & build performances.
+- Responsive landing page
+- Hero section
+- Speaker showcase
+- Event highlights
+- Event agenda
+- FAQ
+- RSVP form
+- Reusable animation system
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```text
+src/
+├── assets/
+├── components/
+├── lib/
+├── sections/
+└── App.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
+
+## Project Status
+
+### Completed
+
+- [x] Navbar
+- [x] Hero
+- [x] Speaker Showcase
+- [x] Highlights
+- [x] Agenda
+- [x] Reusable motion system
+
+### In Progress
+
+- [ ] FAQ
+- [ ] Footer
+- [ ] Final polish
+- [ ] Accessibility review
+- [ ] Performance optimisation
+
+## Design Principles
+
+- Mobile-first responsive design
+- Reusable components
+- Consistent spacing system
+- Accessible by default
+- Performance-focused
+- Lightweight, purposeful animations
+
+## License
+
+This repository is provided for portfolio and learning purposes only.
