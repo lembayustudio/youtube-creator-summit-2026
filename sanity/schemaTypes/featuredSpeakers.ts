@@ -4,9 +4,33 @@ export const featuredSpeakersType = defineType({
   name: "featuredSpeakers",
   title: "Featured Speakers",
   type: "document",
+  
+  fieldsets: [
+  {
+    name: "general",
+    title: "General",
+    options: { collapsible: true },
+  },
+  {
+    name: "display",
+    title: "Display",
+    options: { collapsible: true },
+  },
+  {
+    name: "button",
+    title: "Button",
+    options: { collapsible: true },
+  },
+  {
+    name: "speakers",
+    title: "Speakers",
+    options: { collapsible: true },
+  },
+],
 
   fields: [
     defineField({
+	  fieldset: "general",
       name: "enabled",
       title: "Enable Section",
       type: "boolean",
@@ -14,6 +38,7 @@ export const featuredSpeakersType = defineType({
     }),
 
     defineField({
+		fieldset: "general",
       name: "eyebrow",
       title: "Eyebrow",
       type: "string",
@@ -21,6 +46,7 @@ export const featuredSpeakersType = defineType({
     }),
 
     defineField({
+		fieldset: "general",
       name: "title",
       title: "Title",
       type: "string",
@@ -28,12 +54,14 @@ export const featuredSpeakersType = defineType({
     }),
 
     defineField({
+		fieldset: "general",
       name: "description",
       title: "Description",
       type: "text",
     }),
 
     defineField({
+		fieldset: "display",
       name: "layout",
       title: "Display Layout",
       type: "string",
@@ -49,6 +77,7 @@ export const featuredSpeakersType = defineType({
     }),
 
     defineField({
+		fieldset: "display",
       name: "bannerImage",
       title: "Banner Image",
       type: "image",
@@ -58,6 +87,7 @@ export const featuredSpeakersType = defineType({
     }),
 
     defineField({
+		fieldset: "button",
       name: "buttonText",
       title: "Button Text",
       type: "string",
@@ -65,6 +95,7 @@ export const featuredSpeakersType = defineType({
     }),
 
     defineField({
+		fieldset: "button",
       name: "buttonLink",
       title: "Button Link",
       type: "string",
@@ -72,6 +103,7 @@ export const featuredSpeakersType = defineType({
     }),
 
     defineField({
+		fieldset: "speakers",
       name: "speakers",
       title: "Speakers",
       type: "array",
