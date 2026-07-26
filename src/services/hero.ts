@@ -5,7 +5,9 @@ const heroQuery = `
   *[_type == "hero"][0]{
     _id,
     badge,
-    title,
+    titleLine1,
+    titleLine2,
+    titleHighlight,
     description,
     eventDate,
     eventTime,

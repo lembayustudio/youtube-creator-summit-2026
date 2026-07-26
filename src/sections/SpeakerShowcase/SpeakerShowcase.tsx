@@ -1,15 +1,103 @@
 import { motion } from "motion/react";
+import useEmblaCarousel from "embla-carousel-react";
 import { fadeUp } from "../../lib/motion";
-import featuredSpeakers from "../../assets/images/featured-speakers.webp";
+import { useSpeakers } from "../../hooks/useSpeakers";
+import SpeakerCard from "./SpeakerCard";
 
 export default function SpeakerShowcase() {
+  const { speakers, loading } = useSpeakers();
+
+  const [emblaRef] = useEmblaCarousel({
+    align: "start",
+    loop: false,
+  });
+
+  if (loading) return null;
+
+  const count = speakers.length;
+
+  const renderContent = () => {
+    if (count === 0) {
+      return (
+        <div className="mt-16 text-center text-slate-400">
+          Speakers will be announced soon.
+        </div>
+      );
+    }
+
+    if (count === 1) {
+      return (
+        <div className="mt-16 flex justify-center">
+          <div className="w-full max-w-md">
+            <SpeakerCard speaker={speakers[0]} />
+          </div>
+        </div>
+      );
+    }
+
+    if (count === 2) {
+      return (
+        <div className="mt-16 grid gap-8 md:grid-cols-2">
+          {speakers.map((speaker) => (
+            <SpeakerCard
+              key={speaker._id}
+              speaker={speaker}
+            />
+          ))}
+        </div>
+      );
+    }
+
+    if (count === 3) {
+      return (
+        <div className="mt-16 grid gap-8 lg:grid-cols-3">
+          {speakers.map((speaker) => (
+            <SpeakerCard
+              key={speaker._id}
+              speaker={speaker}
+            />
+          ))}
+        </div>
+      );
+    }
+
+    if (count === 4) {
+      return (
+        <div className="mt-16 grid gap-8 md:grid-cols-2">
+          {speakers.map((speaker) => (
+            <SpeakerCard
+              key={speaker._id}
+              speaker={speaker}
+            />
+          ))}
+        </div>
+      );
+    }
+
+    return (
+      <div
+        ref={emblaRef}
+        className="mt-16 overflow-hidden"
+      >
+        <div className="flex">
+          {speakers.map((speaker) => (
+            <div
+              key={speaker._id}
+              className="min-w-0 flex-[0_0_100%] px-3 md:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
+            >
+              <SpeakerCard speaker={speaker} />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <section className="relative overflow-hidden bg-slate-950 py-24">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -left-40 top-24 h-96 w-96 rounded-full bg-green-500/10 blur-[160px]" />
-
         <div className="absolute left-1/2 top-40 h-96 w-96 -translate-x-1/2 rounded-full bg-fuchsia-500/10 blur-[180px]" />
-
         <div className="absolute -right-40 top-24 h-96 w-96 rounded-full bg-cyan-500/10 blur-[160px]" />
       </div>
 
@@ -36,15 +124,8 @@ export default function SpeakerShowcase() {
           </p>
         </motion.div>
 
-        <motion.div
-          {...fadeUp(0.15)}
-          className="mt-16 overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-1.5 shadow-2xl shadow-green-500/10 backdrop-blur-sm"
-        >
-          <img
-            src={featuredSpeakers}
-            alt="Featured speakers"
-            className="w-full rounded-[24px]"
-          />
+        <motion.div {...fadeUp(0.15)}>
+          {renderContent()}
         </motion.div>
       </div>
     </section>

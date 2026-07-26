@@ -45,13 +45,13 @@ export default function HeroContent() {
         className="text-7xl leading-none uppercase md:text-8xl"
         style={{ fontFamily: '"Bebas Neue", sans-serif' }}
       >
-        {hero.title.split(" ").slice(0, 1).join(" ")}
-        <br />
-        {hero.title.split(" ").slice(1, 3).join(" ")}
-        <br />
-        <span className="text-green-400">
-          {hero.title.split(" ").slice(3).join(" ")}
-        </span>
+        {hero.titleLine1}
+<br />
+{hero.titleLine2}
+<br />
+<span className="text-green-400">
+  {hero.titleHighlight}
+</span>
       </motion.h1>
 
       <motion.p
