@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { fadeUp } from "../../lib/motion";
 import { useCTA } from "../../hooks/useCTA";
+import PrimaryButton from "../../components/PrimaryButton";
 
 export default function CTA() {
   const { cta, loading } = useCTA();
@@ -8,7 +9,7 @@ export default function CTA() {
   if (loading || !cta?.enabled) return null;
 
   return (
-    <section className="bg-gradient-to-b from-slate-950 to-black py-24">
+    <section className="bg-gradient-to-b from-slate-950 to-black py-16 md:py-24">
       <div className="mx-auto max-w-4xl px-6">
         <motion.div
           {...fadeUp()}
@@ -34,15 +35,15 @@ export default function CTA() {
           )}
 
           {cta.buttonText && cta.buttonLink && (
-            <a
-              href={cta.buttonLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-10 inline-flex rounded-full bg-green-500 px-8 py-4 font-semibold text-black transition hover:bg-green-400"
-            >
-              {cta.buttonText}
-            </a>
-          )}
+  <PrimaryButton
+    href={cta.buttonLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-10"
+  >
+    {cta.buttonText}
+  </PrimaryButton>
+)}
         </motion.div>
       </div>
     </section>
