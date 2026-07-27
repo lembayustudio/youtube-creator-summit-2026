@@ -21,7 +21,11 @@ export default function SpeakerShowcase() {
         );
 
       case "cards":
-        return <SpeakerCards />;
+  return (
+    <SpeakerCards
+      speakers={featuredSpeakers.speakers}
+    />
+  );
 
       case "auto":
       default:
@@ -30,7 +34,9 @@ export default function SpeakerShowcase() {
             bannerImage={featuredSpeakers.bannerImage}
           />
         ) : (
-          <SpeakerCards />
+          <SpeakerCards
+  speakers={featuredSpeakers.speakers}
+/>
         );
     }
   };
