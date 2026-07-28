@@ -7,7 +7,6 @@ import FAQ from "./sections/FAQ/FAQ";
 import CTA from "./sections/CTA/CTA";
 import Footer from "./sections/Footer/Footer";
 
-
 export default function App() {
   return (
     <>
@@ -19,7 +18,7 @@ export default function App() {
         <Highlights />
         <Agenda />
         <FAQ />
-		<CTA />
+        <CTA />
       </main>
 
       <Footer />

@@ -18,5 +18,14 @@ const heroQuery = `
 `;
 
 export async function getHero(): Promise<Hero | null> {
-  return sanityClient.fetch(heroQuery);
+  try {
+    const data = await sanityClient.fetch(heroQuery);
+
+    console.log("Hero data:", data);
+
+    return data;
+  } catch (error) {
+    console.error("Sanity fetch failed:", error);
+    throw error;
+  }
 }
