@@ -1,8 +1,4 @@
-import {
-  MapPin,
-  Mail,
-  Phone,
-} from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 
 import {
   FaFacebook,
@@ -14,17 +10,14 @@ import {
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-slate-950">
-
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-green-500/10 blur-[180px]" />
         <div className="absolute -right-32 top-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[180px]" />
       </div>
 
       <div className="relative z-10 mx-auto grid max-w-7xl gap-16 px-6 py-20 md:grid-cols-3">
-
         {/* Brand */}
         <div>
-
           <h3
             className="text-4xl text-white"
             style={{ fontFamily: '"Bebas Neue", sans-serif' }}
@@ -32,9 +25,7 @@ export default function Footer() {
             NEXTSTAGE
           </h3>
 
-          <span className="tracking-[0.25em] text-green-400">
-            EVENTS
-          </span>
+          <span className="tracking-[0.25em] text-green-400">EVENTS</span>
 
           <p className="mt-6 max-w-sm leading-8 text-slate-400">
             Bringing creators together to learn, network and build meaningful
@@ -42,58 +33,53 @@ export default function Footer() {
           </p>
 
           <div className="mt-8 flex gap-4">
+            <Social href="#">
+              <FaFacebook size={18} target="_blank"
+rel="noopener noreferrer"
+title="Follow NextStage Events on Facebook"
+aria-label="Follow NextStage Events on Facebook (opens in a new tab)" />
+            </Social>
 
-  <Social>
-    <FaFacebook size={18} />
-  </Social>
+            <Social href="#">
+              <FaInstagram size={18} target="_blank"
+rel="noopener noreferrer"
+title="Follow NextStage Events on Instagram"
+aria-label="Follow NextStage Events on Instagram (opens in a new tab)"/>
+            </Social>
 
-  <Social>
-    <FaInstagram size={18} />
-  </Social>
+            <Social href="#">
+              <FaYoutube size={18} target="_blank"
+rel="noopener noreferrer"
+title="Subscribe NextStage Events on Youtube"
+aria-label="Subscribe NextStage Events on Youtube (opens in a new tab)"/>
+            </Social>
 
-  <Social>
-    <FaYoutube size={18} />
-  </Social>
-
-  <Social>
-    <FaTiktok size={18} />
-  </Social>
-
-</div>
-
+            <Social href="#">
+              <FaTiktok size={18} target="_blank"
+rel="noopener noreferrer"
+title="Follow NextStage Events on TikTok"
+aria-label="Follow NextStage Events on TikTok (opens in a new tab)"/>
+            </Social>
+          </div>
         </div>
 
         {/* Quick Links */}
         <div>
-
-          <h4 className="text-xl font-semibold text-white">
-            Quick Links
-          </h4>
+          <h4 className="text-xl font-semibold text-white">Quick Links</h4>
 
           <ul className="mt-8 space-y-5 text-slate-300">
-
-            <FooterLink text="Event" />
-
-            <FooterLink text="Speakers" />
-
-            <FooterLink text="Agenda" />
-
-            <FooterLink text="FAQ" />
-
+            <FooterLink text="Highlights" href="#highlights" />
+            <FooterLink text="Speakers" href="#speakers" />
+            <FooterLink text="Agenda" href="#agenda" />
+            <FooterLink text="FAQ" href="#faq" />
           </ul>
-
         </div>
 
         {/* Contact */}
-
         <div>
-
-          <h4 className="text-xl font-semibold text-white">
-            Contact
-          </h4>
+          <h4 className="text-xl font-semibold text-white">Contact</h4>
 
           <div className="mt-8 space-y-6">
-
             <ContactItem
               icon={<Mail size={18} />}
               text="hello@nextstageevents.com"
@@ -108,34 +94,62 @@ export default function Footer() {
               icon={<MapPin size={18} />}
               text="Connexion Conference Centre, Kuala Lumpur"
             />
-
           </div>
-
         </div>
-
       </div>
 
-      <div className="border-t border-white/10 py-8 text-center text-sm text-slate-500">
-        © 2026 NextStage Events. All rights reserved.
-      </div>
+      <div className="border-t border-white/10 py-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 text-center text-sm text-slate-500 md:flex-row">
+          <p>© 2026 NextStage Events. All rights reserved.</p>
 
+          <p>
+            Designed &amp; Developed by{" "}
+            <a
+              href="https://lembayu.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Visit Lembayu Studio – Web Strategy, UI/UX Design & Web Development"
+              aria-label="Visit Lembayu Studio website (opens in a new tab)"
+              className="font-semibold text-slate-300 underline-offset-4 transition-all duration-300 hover:text-green-400"
+            >
+              Lembayu Studio
+            </a>
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }
 
-function Social({ children }: { children: React.ReactNode }) {
+function Social({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) {
   return (
-    <button className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-300 transition-all duration-300 hover:border-green-500/40 hover:bg-green-500/10 hover:text-green-400">
+    <a
+      href={href}
+      aria-label="Visit our social media page"
+      className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-300 transition-all duration-300 hover:border-green-500/40 hover:bg-green-500/10 hover:text-green-400"
+    >
       {children}
-    </button>
+    </a>
   );
 }
 
-function FooterLink({ text }: { text: string }) {
+function FooterLink({
+  text,
+  href,
+}: {
+  text: string;
+  href: string;
+}) {
   return (
     <li>
       <a
-        href="#"
+        href={href}
         className="transition-colors duration-300 hover:text-green-400"
       >
         {text}
@@ -153,9 +167,7 @@ function ContactItem({
 }) {
   return (
     <div className="flex items-start gap-4 text-slate-300">
-      <div className="mt-1 text-green-400">
-        {icon}
-      </div>
+      <div className="mt-1 text-green-400">{icon}</div>
 
       <span>{text}</span>
     </div>

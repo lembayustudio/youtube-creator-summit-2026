@@ -10,7 +10,7 @@ export default function Agenda() {
   if (loading || !agenda?.enabled) return null;
 
   return (
-    <section className="bg-slate-950 py-16 md:py-24">
+    <section id="agenda" className="bg-slate-950 py-16 md:py-24">
       <SectionContainer maxWidth="5xl">
         <SectionHeader
           eyebrow={agenda.eyebrow}
@@ -23,11 +23,11 @@ export default function Agenda() {
             <motion.div
               key={index}
               {...fadeUp(index * 0.08)}
-              className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm md:rounded-3xl md:p-6"
+              className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition-all duration-300 hover:border-green-500/30 hover:bg-white/[0.07] md:rounded-3xl md:p-6"
             >
               <div className="grid gap-4 md:grid-cols-[120px_1fr] md:gap-6">
                 <div>
-                  <p className="text-base font-semibold text-green-400 md:text-lg">
+                  <p className="text-base font-semibold uppercase tracking-wide text-green-400/90 md:text-lg">
                     {item.time}
                   </p>
                 </div>

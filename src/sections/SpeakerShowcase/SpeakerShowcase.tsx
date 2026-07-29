@@ -45,7 +45,7 @@ mobileBanner={featuredSpeakers.mobileBanner}
   };
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-16 md:py-24">
+    <section id="speakers" className="relative overflow-hidden bg-slate-950 py-16 md:py-24">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -left-40 top-24 h-96 w-96 rounded-full bg-green-500/10 blur-[160px]" />
         <div className="absolute left-1/2 top-40 h-96 w-96 -translate-x-1/2 rounded-full bg-fuchsia-500/10 blur-[180px]" />

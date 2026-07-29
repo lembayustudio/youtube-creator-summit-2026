@@ -10,7 +10,7 @@ export default function FAQ() {
   if (loading || !faq?.enabled) return null;
 
   return (
-    <section className="bg-slate-900 py-16 md:py-24">
+    <section id="faq" className="bg-slate-900 py-16 md:py-24">
       <SectionContainer maxWidth="4xl">
         <SectionHeader
   eyebrow={faq.eyebrow}
