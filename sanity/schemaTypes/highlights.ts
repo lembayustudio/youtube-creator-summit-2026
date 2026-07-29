@@ -9,12 +9,18 @@ export default defineType({
     {
       name: "general",
       title: "General",
-      options: { collapsible: true, collapsed: false },
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
     },
     {
       name: "items",
       title: "Highlight Items",
-      options: { collapsible: true, collapsed: false },
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
     },
   ],
 
@@ -60,12 +66,6 @@ export default defineType({
           type: "object",
           fields: [
             defineField({
-              name: "icon",
-              title: "Icon",
-              type: "string",
-            }),
-
-            defineField({
               name: "title",
               title: "Title",
               type: "string",
@@ -79,6 +79,7 @@ export default defineType({
               rows: 2,
             }),
           ],
+
           preview: {
             select: {
               title: "title",

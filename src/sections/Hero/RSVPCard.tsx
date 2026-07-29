@@ -119,16 +119,22 @@ export default function RSVPCard() {
 
         {success && (
           <div className="rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-300">
-            Your RSVP has been submitted successfully.
+            Your seat has been reserved successfully. Check your email for confirmation.
           </div>
         )}
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded-xl bg-green-500 py-4 font-semibold text-black transition-colors duration-300 hover:bg-green-400 disabled:cursor-not-allowed disabled:opacity-60"
+          className="w-full rounded-xl bg-green-500 py-4 font-semibold text-black transition-all duration-300 hover:bg-green-400 hover:scale-[1.01] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {loading ? "Submitting..." : "Reserve My Seat"}
+          <span className="flex items-center justify-center gap-2">
+  {loading && (
+    <span className="h-5 w-5 animate-spin rounded-full border-2 border-black/20 border-t-black" />
+  )}
+
+  {loading ? "Submitting..." : "Reserve My Seat"}
+</span>
         </button>
       </form>
     </motion.div>

@@ -1,4 +1,5 @@
 import Container from "./Container";
+import nextStageLogo from "../assets/images/nextstage-logo-horizontal.webp";
 
 export default function Navbar() {
   return (
@@ -8,22 +9,22 @@ export default function Navbar() {
           aria-label="Primary navigation"
           className="mt-4 flex h-16 items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-6 backdrop-blur-md"
         >
-          <a href="#top" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-500 font-bold text-black">
-              N
-            </div>
-
-            <div className="leading-tight">
-              <p className="font-semibold tracking-wide text-white">
-                NextStage
-              </p>
-
-              <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-                Events
-              </p>
-            </div>
+          {/* Logo */}
+          <a
+            href="#top"
+            aria-label="NextStage Events Home"
+            className="shrink-0 transition-opacity hover:opacity-90"
+          >
+            <img
+              src={nextStageLogo}
+              alt="NextStage Events"
+              className="h-11 w-auto"
+              loading="eager"
+              decoding="async"
+            />
           </a>
 
+          {/* Desktop Navigation */}
           <div className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
             <a href="#highlights" className="transition hover:text-white">
               Highlights
@@ -42,6 +43,7 @@ export default function Navbar() {
             </a>
           </div>
 
+          {/* RSVP Button */}
           <a
             href="#rsvp"
             aria-label="Go to RSVP section"

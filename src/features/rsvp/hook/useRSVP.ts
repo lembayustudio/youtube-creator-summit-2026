@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { submitRSVP } from "../api/rsvpApi";
 import type { RSVPFormData } from "../types/rsvp";
 import { validateRSVP } from "../validation/validateRSVP";
+import { ApiError } from "../../../lib/api/errors";
 
 const initialForm: RSVPFormData = {
   fullName: "",
@@ -30,7 +32,15 @@ export function useRSVP() {
     }
   }
 
+  function resetState() {
+    setLoading(false);
+    setSuccess(false);
+    setError(null);
+  }
+
   async function submit() {
+    resetState();
+
     const validationError = validateRSVP(form);
 
     if (validationError) {
@@ -38,19 +48,25 @@ export function useRSVP() {
       return;
     }
 
-    try {
-      setLoading(true);
-      setError(null);
-      setSuccess(false);
+    setLoading(true);
 
-      // Simulate API request
-      await new Promise((resolve) => setTimeout(resolve, 1200));
+    try {
+      const response = await submitRSVP(form);
+
+      if (!response.success) {
+        throw new Error(response.message);
+      }
 
       setSuccess(true);
-
       setForm(initialForm);
-    } catch {
-      setError("Something went wrong. Please try again.");
+    } catch (err) {
+      if (err instanceof ApiError) {
+        setError(err.message);
+      } else if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Ralat tidak dijangka. Sila cuba lagi.");
+      }
     } finally {
       setLoading(false);
     }
@@ -63,5 +79,6 @@ export function useRSVP() {
     error,
     updateField,
     submit,
+    resetState,
   };
 }
