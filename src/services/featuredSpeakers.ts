@@ -10,11 +10,8 @@ const query = `
   description,
   layout,
 
-  bannerImage{
-    asset->{
-      url
-    }
-  },
+  "desktopBanner": desktopBanner.asset->url,
+"mobileBanner": mobileBanner.asset->url,
 
   buttonText,
   buttonLink,

@@ -77,14 +77,24 @@ export const featuredSpeakersType = defineType({
     }),
 
     defineField({
-		fieldset: "display",
-      name: "bannerImage",
-      title: "Banner Image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    }),
+  fieldset: "display",
+  name: "desktopBanner",
+  title: "Desktop Banner",
+  type: "image",
+  options: {
+    hotspot: true,
+  },
+}),
+
+defineField({
+  fieldset: "display",
+  name: "mobileBanner",
+  title: "Mobile Banner",
+  type: "image",
+  options: {
+    hotspot: true,
+  },
+}),
 
     defineField({
 		fieldset: "button",

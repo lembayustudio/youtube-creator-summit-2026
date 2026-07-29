@@ -26,11 +26,8 @@ export interface FeaturedSpeakers {
 
   layout: FeaturedSpeakersLayout;
 
-  bannerImage?: {
-    asset?: {
-      url: string;
-    };
-  };
+  desktopBanner?: string;
+  mobileBanner?: string;
 
   buttonText?: string;
   buttonLink?: string;

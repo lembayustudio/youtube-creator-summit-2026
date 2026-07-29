@@ -9,7 +9,10 @@ export default function Highlights() {
   if (loading || !highlights?.enabled) return null;
 
   return (
-    <section className="relative bg-slate-950 py-16 md:py-24">
+    <section
+      id="highlights"
+      className="relative bg-slate-950 py-16 md:py-24"
+    >
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           eyebrow={highlights.eyebrow}

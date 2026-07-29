@@ -1,26 +1,31 @@
-import { urlFor } from "../../lib/imageUrl";
-
-interface SpeakerBannerProps {
-  bannerImage?: {
-    asset?: {
-      _ref?: string;
-      url?: string;
-    };
-  };
-}
+type SpeakerBannerProps = {
+  desktopBanner?: string;
+  mobileBanner?: string;
+};
 
 export default function SpeakerBanner({
-  bannerImage,
+  desktopBanner,
+  mobileBanner,
 }: SpeakerBannerProps) {
-  if (!bannerImage) return null;
+  if (!desktopBanner && !mobileBanner) return null;
 
   return (
-    <div className="mt-16 overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-1.5 shadow-2xl shadow-green-500/10 backdrop-blur-sm">
-      <img
-        src={urlFor(bannerImage).url()}
-        alt="Featured speakers"
-        className="w-full rounded-[24px]"
-      />
+    <div className="mt-16 overflow-hidden rounded-3xl border border-white/10">
+      <picture>
+        {desktopBanner && (
+          <source
+            media="(min-width:768px)"
+            srcSet={desktopBanner}
+          />
+        )}
+
+        <img
+          src={mobileBanner || desktopBanner}
+          alt="Featured Speakers"
+          loading="lazy"
+          className="block w-full"
+        />
+      </picture>
     </div>
   );
 }

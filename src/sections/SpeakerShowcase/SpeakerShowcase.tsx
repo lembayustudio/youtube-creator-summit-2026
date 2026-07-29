@@ -18,7 +18,8 @@ export default function SpeakerShowcase() {
       case "banner":
         return (
           <SpeakerBanner
-            bannerImage={featuredSpeakers.bannerImage}
+            desktopBanner={featuredSpeakers.desktopBanner}
+mobileBanner={featuredSpeakers.mobileBanner}
           />
         );
 

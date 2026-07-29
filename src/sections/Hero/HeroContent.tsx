@@ -42,7 +42,7 @@ export default function HeroContent() {
       <motion.h1
         id="hero-title"
         variants={heroItem}
-        className="text-7xl leading-none uppercase md:text-8xl"
+        className="text-6xl leading-[0.95] uppercase sm:text-7xl lg:text-8xl"
         style={{ fontFamily: '"Bebas Neue", sans-serif' }}
       >
         {hero.titleLine1}
@@ -56,7 +56,7 @@ export default function HeroContent() {
 
       <motion.p
         variants={heroItem}
-        className="mt-6 max-w-lg text-lg leading-8 text-slate-300"
+        className="mt-6 max-w-xl text-lg leading-8 text-slate-300"
       >
         {hero.description}
       </motion.p>
@@ -78,7 +78,7 @@ export default function HeroContent() {
         />
       </motion.div>
 
-      <motion.div variants={heroItem} className="mt-12 w-fit">
+      <motion.div variants={heroItem} className="mt-10 w-fit">
         <a
           href={hero.ctaLink}
           className="inline-flex items-center justify-center rounded-xl bg-green-500 px-8 py-4 font-semibold text-slate-950 shadow-lg shadow-green-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-400 hover:shadow-xl hover:shadow-green-400/30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-green-500/30"
