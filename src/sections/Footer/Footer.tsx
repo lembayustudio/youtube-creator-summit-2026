@@ -34,31 +34,19 @@ export default function Footer() {
 
           <div className="mt-8 flex gap-4">
             <Social href="#">
-              <FaFacebook size={18} target="_blank"
-rel="noopener noreferrer"
-title="Follow NextStage Events on Facebook"
-aria-label="Follow NextStage Events on Facebook (opens in a new tab)" />
+              <FaFacebook size={18} />
             </Social>
 
             <Social href="#">
-              <FaInstagram size={18} target="_blank"
-rel="noopener noreferrer"
-title="Follow NextStage Events on Instagram"
-aria-label="Follow NextStage Events on Instagram (opens in a new tab)"/>
+              <FaInstagram size={18} />
             </Social>
 
             <Social href="#">
-              <FaYoutube size={18} target="_blank"
-rel="noopener noreferrer"
-title="Subscribe NextStage Events on Youtube"
-aria-label="Subscribe NextStage Events on Youtube (opens in a new tab)"/>
+              <FaYoutube size={18} />
             </Social>
 
             <Social href="#">
-              <FaTiktok size={18} target="_blank"
-rel="noopener noreferrer"
-title="Follow NextStage Events on TikTok"
-aria-label="Follow NextStage Events on TikTok (opens in a new tab)"/>
+              <FaTiktok size={18} />
             </Social>
           </div>
         </div>

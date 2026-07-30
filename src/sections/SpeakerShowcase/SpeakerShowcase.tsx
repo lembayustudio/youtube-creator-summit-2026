@@ -31,16 +31,17 @@ mobileBanner={featuredSpeakers.mobileBanner}
   );
 
       case "auto":
-      default:
-        return featuredSpeakers.bannerImage ? (
-          <SpeakerBanner
-            bannerImage={featuredSpeakers.bannerImage}
-          />
-        ) : (
-          <SpeakerCards
-  speakers={featuredSpeakers.speakers}
-/>
-        );
+default:
+  return featuredSpeakers.desktopBanner ? (
+    <SpeakerBanner
+      desktopBanner={featuredSpeakers.desktopBanner}
+      mobileBanner={featuredSpeakers.mobileBanner}
+    />
+  ) : (
+    <SpeakerCards
+      speakers={featuredSpeakers.speakers}
+    />
+  );
     }
   };
 
