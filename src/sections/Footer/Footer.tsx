@@ -10,7 +10,7 @@ import {
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-slate-950">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-green-500/10 blur-[180px]" />
         <div className="absolute -right-32 top-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[180px]" />
       </div>
@@ -87,10 +87,12 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10 py-8">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 text-center text-sm text-slate-500 md:flex-row">
-          <p>© 2026 NextStage Events. All rights reserved.</p>
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-3 px-6 text-center">
+          <p className="text-sm text-slate-500">
+            © {new Date().getFullYear()} NextStage Events. All rights reserved.
+          </p>
 
-          <p>
+          <p className="text-sm text-slate-500">
             Designed &amp; Developed by{" "}
             <a
               href="https://lembayu.com"
@@ -102,6 +104,15 @@ export default function Footer() {
             >
               Lembayu Studio
             </a>
+          </p>
+
+          <p className="mt-2 max-w-4xl text-xs leading-6 text-slate-500">
+            <span className="font-semibold text-slate-400">
+              Portfolio Project
+            </span>{" "}
+            — This website was created solely for portfolio and demonstration
+            purposes. The event, speakers, schedule, venue, sponsors and all
+            related content are fictional and do not represent a real event.
           </p>
         </div>
       </div>
