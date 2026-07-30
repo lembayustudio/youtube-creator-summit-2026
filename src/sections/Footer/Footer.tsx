@@ -110,7 +110,7 @@ export default function Footer() {
             <span className="font-semibold text-slate-400">
               Portfolio Project
             </span>{" "}
-            — This website was created solely for portfolio and demonstration
+            | This website was created solely for portfolio and demonstration
             purposes. The event, speakers, schedule, venue, sponsors and all
             related content are fictional and do not represent a real event.
           </p>
