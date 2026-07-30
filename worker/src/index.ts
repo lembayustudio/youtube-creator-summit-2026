@@ -1,24 +1,52 @@
 export interface Env {
   APPS_SCRIPT_URL: string;
+  ALLOWED_ORIGINS: string;
 }
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://youtube-creator-summit-2026.vercel.app",
-];
+interface RSVPRequest {
+  fullName: string;
+  email: string;
+  phone: string;
+  company?: string;
+}
 
-function getCorsHeaders(origin: string | null) {
+function getAllowedOrigins(env: Env): string[] {
+  return env.ALLOWED_ORIGINS.split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+}
+
+function getCorsHeaders(origin: string | null, env: Env) {
+  const allowedOrigins = getAllowedOrigins(env);
+
+  const allowOrigin =
+    origin && allowedOrigins.includes(origin)
+      ? origin
+      : allowedOrigins[0];
+
   return {
-    "Access-Control-Allow-Origin":
-      origin && allowedOrigins.includes(origin)
-        ? origin
-        : allowedOrigins[0],
+    "Access-Control-Allow-Origin": allowOrigin,
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Max-Age": "86400",
+    Vary: "Origin",
   };
 }
 
-function validatePayload(payload: any): string | null {
+function createHeaders(
+  corsHeaders: Record<string, string>,
+  contentType = "application/json"
+) {
+  return {
+    ...corsHeaders,
+    "Content-Type": contentType,
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "X-Frame-Options": "DENY",
+  };
+}
+
+function validatePayload(payload: RSVPRequest): string | null {
   if (!payload.fullName?.trim()) {
     return "Nama diperlukan.";
   }
@@ -37,34 +65,31 @@ function validatePayload(payload: any): string | null {
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const origin = request.headers.get("Origin");
-    const corsHeaders = getCorsHeaders(origin);
+    const corsHeaders = getCorsHeaders(origin, env);
 
-    // CORS preflight
+    // Handle preflight request
     if (request.method === "OPTIONS") {
       return new Response(null, {
         status: 204,
-        headers: corsHeaders,
+        headers: createHeaders(corsHeaders),
       });
     }
 
     try {
-      // GET request
+      // Health check
       if (request.method === "GET") {
         const response = await fetch(env.APPS_SCRIPT_URL);
         const body = await response.text();
 
         return new Response(body, {
           status: response.status,
-          headers: {
-            ...corsHeaders,
-            "Content-Type": "application/json",
-          },
+          headers: createHeaders(corsHeaders),
         });
       }
 
-      // POST request
+      // RSVP submission
       if (request.method === "POST") {
-        const payload = await request.json();
+        const payload = (await request.json()) as RSVPRequest;
 
         const error = validatePayload(payload);
 
@@ -77,7 +102,7 @@ export default {
             },
             {
               status: 400,
-              headers: corsHeaders,
+              headers: createHeaders(corsHeaders),
             }
           );
         }
@@ -94,10 +119,7 @@ export default {
 
         return new Response(body, {
           status: response.status,
-          headers: {
-            ...corsHeaders,
-            "Content-Type": "application/json",
-          },
+          headers: createHeaders(corsHeaders),
         });
       }
 
@@ -108,7 +130,7 @@ export default {
         },
         {
           status: 405,
-          headers: corsHeaders,
+          headers: createHeaders(corsHeaders),
         }
       );
     } catch (error) {
@@ -120,7 +142,7 @@ export default {
         },
         {
           status: 500,
-          headers: corsHeaders,
+          headers: createHeaders(corsHeaders),
         }
       );
     }
