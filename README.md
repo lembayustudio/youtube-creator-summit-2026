@@ -167,11 +167,11 @@ Latest Lighthouse Results
 
 | Category | Score |
 |----------|------:|
-| Performance (Mobile) | 90 |
+| Performance (Mobile) | 88 |
 | Performance (Desktop) | 99 |
 | Accessibility | 100 |
 | Best Practices | 100 |
-| SEO | 92 |
+| SEO | 100 |
 
 ---
 
