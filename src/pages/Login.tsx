@@ -1,5 +1,5 @@
 import { ArrowRight, Lock } from "lucide-react";
-import { env } from "@/lib/config/env";
+import { env } from "../lib/config/env";
 
 export default function Login() {
   return (
@@ -15,11 +15,11 @@ export default function Login() {
         </div>
 
         <h1 className="mt-6 text-3xl font-bold text-white">
-          Client Portal
+          Manage Website
         </h1>
 
         <p className="mt-4 leading-7 text-slate-400">
-          Access the content management system to update your website.
+          Sign in to update your website content, speakers, agenda and event information.
         </p>
 
         <button
@@ -28,12 +28,12 @@ export default function Login() {
           }}
           className="mt-10 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-green-500 px-6 py-4 font-semibold text-slate-950 transition hover:bg-green-400"
         >
-          Continue to CMS
+          Manage Website
           <ArrowRight size={18} />
         </button>
 
         <p className="mt-6 text-sm text-slate-500">
-          Secure login powered by Sanity CMS.
+          Secure client portal provided by Lembayu Studio.
         </p>
       </div>
     </main>
