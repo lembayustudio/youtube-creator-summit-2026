@@ -1,35 +1,96 @@
+## Preview
+
+![Homepage](docs/homepage.webp)
+
+![Client Portal](docs/login.webp)
+
 # YouTube Creator Summit 2026
 
-A modern event landing page built with React, TypeScript and Tailwind CSS.
+A modern event landing page built with React, TypeScript and Tailwind CSS featuring a headless CMS, RSVP system and serverless backend.
 
-> [!IMPORTANT]
-> **Portfolio Project**
->
-> This project was created solely for portfolio and demonstration purposes.
->
-> The event, speakers, schedule, branding, images and all written content are fictional or used as placeholder content to showcase website design, frontend development and UI/UX capabilities.
->
-> It is **not affiliated with YouTube, Google or any real organisation**.
+> **Disclaimer:** This is a fictional portfolio project created solely for demonstration purposes. The event, speakers, schedule, venue, sponsors and all related content are fictional.
+
+## Live Demo
+
+🌐 Website  
+https://nextstage.pages.dev
+
+🔐 Client Portal  
+https://nextstage.pages.dev/login
+
+---
+
+## Features
+
+- Modern responsive landing page
+- Mobile-first design
+- Sanity CMS integration
+- Client Portal for content management
+- RSVP registration form
+- Google Sheets integration
+- Confirmation email
+- Cloudflare Workers API
+- Cloudflare Pages deployment
+- Technical SEO
+- Lighthouse optimised
+- AI discoverability (`llms.txt`)
+
+---
 
 ## Tech Stack
 
-- React
+### Frontend
+
+- React 19
 - TypeScript
 - Vite
 - Tailwind CSS v4
 - Motion
-- Lucide React
+- React Router
+- Lucide Icons
 
-## Features
+### CMS
 
-- Responsive landing page
-- Hero section
-- Speaker showcase
-- Event highlights
-- Event agenda
-- FAQ
-- RSVP form
-- Reusable animation system
+- Sanity Studio
+
+### Backend
+
+- Cloudflare Workers
+- Google Apps Script
+
+### Database
+
+- Google Sheets
+
+### Hosting
+
+- Cloudflare Pages
+
+---
+
+## System Architecture
+
+```text
+                React + Vite
+                     │
+                     ▼
+             Cloudflare Pages
+                     │
+      ┌──────────────┴──────────────┐
+      ▼                             ▼
+ Sanity Content Lake         Cloudflare Worker
+      │                             │
+      │                             ▼
+      │                    Google Apps Script
+      │                             │
+      ▼                             ▼
+ Dynamic Website             Google Sheets
+                                   │
+                                   ▼
+                         Confirmation Email
+```
+
+---
 
 ## Project Structure
 
@@ -37,46 +98,126 @@ A modern event landing page built with React, TypeScript and Tailwind CSS.
 src/
 ├── assets/
 ├── components/
+├── features/
+├── hooks/
+├── layouts/
 ├── lib/
+├── pages/
+├── routes/
 ├── sections/
-└── App.tsx
+├── services/
+├── styles/
+├── types/
+└── utils/
 ```
 
-## Development
+---
+
+## Getting Started
+
+Clone the repository
+
+```bash
+git clone https://github.com/lembayustudio/youtube-creator-summit-2026.git
+```
+
+Install dependencies
 
 ```bash
 npm install
+```
+
+Run development server
+
+```bash
 npm run dev
 ```
 
-## Project Status
+Build production
 
-### Completed
+```bash
+npm run build
+```
 
-- [x] Navbar
-- [x] Hero
-- [x] Speaker Showcase
-- [x] Highlights
-- [x] Agenda
-- [x] Reusable motion system
+Preview production build
 
-### In Progress
+```bash
+npm run preview
+```
 
-- [ ] FAQ
-- [ ] Footer
-- [ ] Final polish
-- [ ] Accessibility review
-- [ ] Performance optimisation
+---
 
-## Design Principles
+## Environment Variables
 
-- Mobile-first responsive design
-- Reusable components
-- Consistent spacing system
-- Accessible by default
-- Performance-focused
-- Lightweight, purposeful animations
+Create a `.env.local` file.
+
+```env
+VITE_SANITY_PROJECT_ID=
+VITE_SANITY_DATASET=production
+VITE_SANITY_API_VERSION=
+VITE_RSVP_API_URL=
+VITE_CMS_URL=
+```
+
+---
+
+## Performance
+
+Latest Lighthouse Results
+
+| Category | Score |
+|----------|------:|
+| Performance (Mobile) | 90 |
+| Performance (Desktop) | 99 |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 92 |
+
+---
+
+## Client Workflow
+
+```
+Client
+    │
+    ▼
+Login Portal
+    │
+    ▼
+Sanity Studio
+    │
+    ▼
+Edit Content
+    │
+    ▼
+Website Updates Instantly
+```
+
+---
+
+## Portfolio Notes
+
+This project demonstrates:
+
+- Modern React architecture
+- Headless CMS implementation
+- Serverless backend
+- Dynamic content management
+- Responsive UI
+- Performance optimisation
+- Technical SEO
+- Production deployment workflow
+
+---
+
+## Credits
+
+Designed & Developed by **Lembayu Studio**
+
+🌐 https://lembayu.com
+
+---
 
 ## License
 
-This repository is provided for portfolio and learning purposes only.
+This repository is provided for portfolio and demonstration purposes only.
