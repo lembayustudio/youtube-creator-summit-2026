@@ -1,0 +1,25 @@
+# YouTube Creator Summit 2026
+
+Portfolio demonstration website built by Lembayu Studio.
+
+## Features
+
+- Responsive landing page
+- Sanity CMS
+- RSVP registration
+- Cloudflare Workers
+- Google Apps Script
+- Google Sheets
+- Confirmation email
+
+## Website
+
+https://nextstage.pages.dev
+
+## Developer
+
+https://lembayu.com
+
+## Disclaimer
+
+This website is fictional and created solely for portfolio and demonstration purposes.
