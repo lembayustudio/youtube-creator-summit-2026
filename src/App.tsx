@@ -1,3 +1,5 @@
+import { Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero/Hero";
 import SpeakerShowcase from "./sections/SpeakerShowcase/SpeakerShowcase";
@@ -7,7 +9,9 @@ import FAQ from "./sections/FAQ/FAQ";
 import CTA from "./sections/CTA/CTA";
 import Footer from "./sections/Footer/Footer";
 
-export default function App() {
+import Login from "./pages/Login";
+
+function HomePage() {
   return (
     <>
       <Navbar />
@@ -23,5 +27,14 @@ export default function App() {
 
       <Footer />
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
   );
 }
