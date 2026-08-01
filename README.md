@@ -165,7 +165,13 @@ VITE_CMS_URL=
 
 Latest Lighthouse Results
 
-![Homepage](docs/pagespeed.webp)
+|      Category         | Score |
+|-------------------------------|
+| Performance (Mobile)  |   89  |
+| Performance (Desktop) |  100  |
+| Accessibility         |  100  |
+| Best Practices        |  100  |
+| SEO                   |  100  |
 
 ---
 
